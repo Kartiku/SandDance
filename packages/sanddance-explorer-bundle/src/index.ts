@@ -8,6 +8,7 @@ import * as ReactDOM from 'react-dom';
 import * as SandDanceExplorer from '@msrvida/sanddance-explorer';
 import * as vega from 'vega-lib';
 import { fabric } from './fabricComponents';
+import { downloadData } from './download';
 
 import SandDance = SandDanceExplorer.SandDance;
 import types = SandDance.VegaDeckGl.types;
@@ -22,7 +23,15 @@ const init = (selector: string, cssHref: string) => new Promise<SandDanceExplore
     link.onload = () => {
         const explorerProps: SandDanceExplorer.Props = {
             logoClickUrl: 'https://microsoft.github.io/SandDance/',
-            mounted: explorer => resolve(explorer)
+            mounted: explorer => resolve(explorer),
+            dataExportHandler: (data, datatype, displayName) => {
+                try {
+                    downloadData(data, `${displayName}.${datatype}`);
+                }
+                catch (e) {
+                    //explorer.setState({ errors: [strings.errorDownloadFailure] });
+                }
+            }
         };
         const el = document.querySelector(selector) as HTMLElement;
         el.style.bottom = el.style.top = el.style.left = el.style.right = '0';

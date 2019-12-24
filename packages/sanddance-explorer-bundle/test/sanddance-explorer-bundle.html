@@ -17,11 +17,21 @@
 <body>
     <script src="../dist/umd/sanddance-explorer-bundle.js"></script>
 
+    <pre id='csv-data' style='display:none'>Name,Class,Joined,Job,TicketCost,Age,Gender,Survived,Department
+        "MINAHAN, Mrs Lillian E.",1st Class Passenger,Queenstown,,90,37,Female,True,
+        "MINAHAN, Miss Daisy E.",1st Class Passenger,Queenstown,,90,33,Female,True,
+        "KEANE, Miss Nora Agnes",2nd Class Passenger,Queenstown,,12.35,46,Female,True,
+        "SLAYTER, Miss Hilda Mary",2nd Class Passenger,Queenstown,,12.35,30,Female,True,
+        "BRADLEY, Miss Bridget Delia",3rd Class Passenger,Queenstown,,7.725,22,Female,True,
+        "BUCKLEY, Mr Daniel",3rd Class Passenger,Queenstown,Farm Labourer,7.820833333,21,Male,True,
+        "SHINE, Miss Ellen",3rd Class Passenger,Queenstown,,7.829166667,20,Female,True,
+        "SMYTH, Miss Julia",3rd Class Passenger,Queenstown,,7.733333333,17,Female,True,</pre>    
+        
     <div id="app"></div>
 
     <script>
-        SandDanceExplorerBundle.init('#app', 'https://unpkg.com/@msrvida/sanddance-explorer@1/dist/css/sanddance-explorer.css').then(explorer => {
-            explorer.load([{}], columns => { });
+        SandDanceExplorerBundle.init('#app', '../../../docs/dist/sanddance-explorer/v1/sanddance-explorer.css').then(explorer => {
+            explorer.load(Object.assign({rawText: document.getElementById('csv-data').innerText}, {"type":"csv","displayName":"Titanic (44)"}));
         });
     </script>
 </body>
