@@ -15,31 +15,24 @@ import types = SandDance.VegaDeckGl.types;
 
 SandDanceExplorer.use(fabric, <types.VegaBase>vega, deck, layers, luma);
 
-const init = (selector: string, cssHref: string) => new Promise<SandDanceExplorer.Explorer>((resolve, reject) => {
-    var link = document.createElement("link");
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = cssHref;
-    link.onload = () => {
-        const explorerProps: SandDanceExplorer.Props = {
-            logoClickUrl: 'https://microsoft.github.io/SandDance/',
-            mounted: explorer => resolve(explorer),
-            dataExportHandler: (data, datatype, displayName) => {
-                try {
-                    downloadData(data, `${displayName}.${datatype}`);
-                }
-                catch (e) {
-                    //explorer.setState({ errors: [strings.errorDownloadFailure] });
-                }
+const init = (selector: string) => new Promise<SandDanceExplorer.Explorer>((resolve, reject) => {
+    const explorerProps: SandDanceExplorer.Props = {
+        logoClickUrl: 'https://microsoft.github.io/SandDance/',
+        mounted: explorer => resolve(explorer),
+        dataExportHandler: (data, datatype, displayName) => {
+            try {
+                downloadData(data, `${displayName}.${datatype}`);
             }
-        };
-        const el = document.querySelector(selector) as HTMLElement;
-        el.style.bottom = el.style.top = el.style.left = el.style.right = '0';
-        el.style.display = 'grid';
-        el.style.position = 'absolute';
-        ReactDOM.render(React.createElement(SandDanceExplorer.Explorer, explorerProps), el);
+            catch (e) {
+                //explorer.setState({ errors: [strings.errorDownloadFailure] });
+            }
+        }
     };
-    document.getElementsByTagName("head")[0].appendChild(link);
+    const el = document.querySelector(selector) as HTMLElement;
+    el.style.bottom = el.style.top = el.style.left = el.style.right = '0';
+    el.style.display = 'grid';
+    el.style.position = 'absolute';
+    ReactDOM.render(React.createElement(SandDanceExplorer.Explorer, explorerProps), el);
 });
 
 export { deck, layers, luma, React, ReactDOM, SandDanceExplorer, vega, fabric, init };
