@@ -588,24 +588,109 @@
             explorer.load(Object.assign({rawText: document.getElementById('csv-data').innerText}, {"type":"csv","displayName":"Titanic (44)"}));
             /*explorer.changeInsight({
                 snapshots: [
-                    {
-                        description: "test",
-                        insight: {
-                            scheme: "category20",
-                            columns: {
-                                color: "Gender",
-                                sort: "Class",
-                                y: "Name",
-                            },
-                            size: {
-                                height: 700,
-                                width: 700
-                            },
-                            chart: 'barchartH',
-                            view: '2d'
-                        }
-                    }
-                ]
+{
+  description:"Skeletal meshes by time",
+  insight: {
+  "colorBin": "quantile",
+  "columns": {
+    "x": "Draws",
+    "sort": "Time",
+    "color": "Time",
+    "y": "Name",
+    "size": "Time"
+  },
+  "directColor": false,
+  "facets": null,
+  "filter": [
+    {
+      "key": 0,
+      "clause": null,
+      "expressions": [
+        {
+          "key": 0,
+          "clause": null,
+          "name": "Name",
+          "operator": "contains",
+          "value": "SKM_",
+          "unlocked": true,
+          "errorMessage": null
+        }
+      ]
+    }
+  ],
+  "hideAxes": false,
+  "hideLegend": false,
+  "scheme": "redyellowgreen",
+  "signalValues": {
+    "RoleZ_ProportionSignal": 0.6,
+    "Text_ScaleSignal": 2,
+    "Text_AngleXSignal": 30,
+    "Text_AngleYSignal": 0,
+    "Mark_OpacitySignal": 1,
+    "RoleColor_BinCountSignal": 7,
+    "Chart_TreeMapMethodSignal": "squarify",
+    "RoleColor_ReverseSignal": false
+  },
+  "size": {
+    "height": 547,
+    "width": 618
+  },
+  "chart": "treemap",
+  "view": "2d"
+}
+},
+{
+  description:"Static meshes by time",
+  insight: {
+  "colorBin": "quantile",
+  "columns": {
+    "x": "Draws",
+    "sort": "Time",
+    "color": "Time",
+    "y": "Name",
+    "size": "Time"
+  },
+  "directColor": false,
+  "facets": null,
+  "filter": [
+    {
+      "key": 0,
+      "clause": null,
+      "expressions": [
+        {
+          "key": 0,
+          "clause": null,
+          "name": "Name",
+          "operator": "contains",
+          "value": "SM_",
+          "unlocked": true,
+          "errorMessage": null
+        }
+      ]
+    }
+  ],
+  "hideAxes": false,
+  "hideLegend": false,
+  "scheme": "redyellowgreen",
+  "signalValues": {
+    "RoleZ_ProportionSignal": 0.6,
+    "Text_ScaleSignal": 2,
+    "Text_AngleXSignal": 30,
+    "Text_AngleYSignal": 0,
+    "Mark_OpacitySignal": 1,
+    "RoleColor_BinCountSignal": 7,
+    "Chart_TreeMapMethodSignal": "squarify",
+    "RoleColor_ReverseSignal": false
+  },
+  "size": {
+    "height": 547,
+    "width": 618
+  },
+  "chart": "treemap",
+  "view": "2d"
+}
+}
+]
             });*/
         });
     </script>
