@@ -586,6 +586,27 @@
     <script>
         SandDanceExplorerBundle.init('#app').then(explorer => {
             explorer.load(Object.assign({rawText: document.getElementById('csv-data').innerText}, {"type":"csv","displayName":"Titanic (44)"}));
+            /*explorer.changeInsight({
+                snapshots: [
+                    {
+                        description: "test",
+                        insight: {
+                            scheme: "category20",
+                            columns: {
+                                color: "Gender",
+                                sort: "Class",
+                                y: "Name",
+                            },
+                            size: {
+                                height: 700,
+                                width: 700
+                            },
+                            chart: 'barchartH',
+                            view: '2d'
+                        }
+                    }
+                ]
+            });*/
         });
     </script>
 </body>
