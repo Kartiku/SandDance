@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build-typescript": "tsc -p .",
-    "bundle": "parcel build ./dist/es6/index.js --out-dir ./dist/umd/ --out-file sanddance-explorer-bundle.js --no-source-maps --global SandDanceExplorerBundle",
+    "bundle": "parcel build ./dist/es6/index.js --out-dir ./dist/umd/ --out-file sanddance-explorer-bundle.js --no-minify --no-source-maps --global SandDanceExplorerBundle",
     "build": "npm run build-typescript && npm run bundle"
   },
   "dependencies": {
